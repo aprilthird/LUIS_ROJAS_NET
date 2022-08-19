@@ -1,0 +1,45 @@
+﻿@using SOL_LUIS_ROJAS.WEB.ViewModels;
+@model List<BookViewModel>
+
+@{
+    ViewBag.Title = "Libros";
+}
+
+<h2>Libros</h2>
+
+@if (Model.Any())
+{
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ISBN</th>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Autor</th>
+                <th>Fecha Publicación</th>
+                <th>País</th>
+                <th>Editor</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.ISBN</td>
+                    <td>@item.Name</td>
+                    <td>@item.Category</td>
+                    <td>@item.Author</td>
+                    <td>@item.IssueDate.ToShortDateString()</td>
+                    <td>@item.Country</td>
+                    <td>@item.Publisher</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h3>No se encontraron libros registrados.</h3>
+}
